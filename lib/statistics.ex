@@ -18,12 +18,33 @@ defmodule Statistics do
 
     mean
   end
+
+  def calc_variance(data) do
+    mean = calc_mean(data)
+
+    sum_of_diference =
+      data
+      |> Enum.map(fn element -> Float.pow(element - mean, 2) end)
+      |> Enum.sum()
+
+    variance = sum_of_diference / (Enum.count(data) - 1)
+    variance
+  end
+
+  def calc_standard_deviation(data) do
+    standard_deviation = :math.sqrt(calc_variance(data))
+    standard_deviation
+  end
+
+  def calc_standard_deviation_of_mean(data) do
+    standard_deviation_of_mean = calc_standard_deviation(data) / :math.sqrt(Enum.count(data))
+    standard_deviation_of_mean
+  end
 end
 
 Statistics.read_file() |> Statistics.calc_mean()
 # todo:
-# calc_standard_deviation
-# calc_standard_deviation_of_mean
-# calc_expected_value
-# calc_variance
-# calc_mean
+# [x] calc_standard_deviation
+# [x] calc_standard_deviation_of_mean
+# [x] calc_variance
+# [x] calc_mean
