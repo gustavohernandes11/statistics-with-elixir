@@ -234,3 +234,10 @@ Você pode obter o codepoint de um caractere usando ?
 # Data e tempos
 
 Time.utc_now
+
+# Processos
+
+Têm baixo custo de desempenho (greeen thred).
+São escaláveis.
+Tolerantes a falhas e isolados.
+Distribuídos.
